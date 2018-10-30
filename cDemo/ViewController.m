@@ -21,7 +21,6 @@
 //    [self demo3];
 //    [self demo4:3 max:5];
 //    [self demo5];
-    
 //    [self demo6];
 //    [self demo7];
 //    three_hellos();
@@ -48,6 +47,17 @@
 //    for (int i = 0; i < len; i++) {
 //        printf("%d ",arr[i]);
 //    }
+//    int a[] = {10,20,40};
+//    int b[] = {12,30,35};
+//    int size1 = sizeof(a) / sizeof(int);
+//    int size2 = sizeof(b) /sizeof(int);
+//   int *res = combineArr(a, size1, b, size2);
+//    for ( int i = 0; i < size1+size2; i++) {
+//        printf("%d\n",res[i]);
+//    }
+    
+    
+    
 }
 
 
@@ -377,33 +387,30 @@ void quick_sort(int *arr,int left, int right){
     
     
     }
-    
-
-
-void quick_sort1(int s[],int l,int r)
-{
-    if(l < r)
-    {
-        int i=l,j=r,x=s[l];
-        while(i<j)
-        {
-            while(i<j && s[j]>=x)//从右到左找到第一个小于x的数
-                j--;
-            if(i<j)
-                s[i++]=s[j];
-            
-            while(i<j && s[i]<=x)//从左往右找到第一个大于x的数
-                i++;
-            if(i<j)
-                s[j--]=s[i];
+ // 合并两个有序数组
+int *combineArr(int *arr1,int size1,int *arr2,int size2){
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int res[size1+size2];
+    while (i<size1 && j<size2) {
+        if (arr1[i] <=arr2[j]) {
+            res[k++] = arr1[i];
+            i++;
+        }else{
+            res[k++] = arr2[j];
+            j++;
         }
-        
-        s[i]=x;//i = j的时候，将x填入中间位置
-        quick_sort(s,l,i-1);//递归调用
-        quick_sort(s,i+1,r);
     }
+    while (i < size1) {
+        res[k++] = arr1[i++];
+    }
+    while (j < size2) {
+        res[k++] = arr2[j++];
+    }
+    int *arr =(int*)res;
+    return arr;
 }
-
  /**
     数据结构 链表 二叉树
   */
