@@ -41,26 +41,18 @@
 //    [self demo11];
 //    [self demo99];
     //    [self demo17];
-//    int arr[] = {600,20,60,50,100};
-//    int len = sizeof(arr) /sizeof(int);
-//    quick_sort(arr, 0, len-1);
-//    for (int i = 0; i < len; i++) {
-//        printf("%d ",arr[i]);
-//    }
-//    int a[] = {10,20,40};
-//    int b[] = {12,30,35};
-//    int size1 = sizeof(a) / sizeof(int);
-//    int size2 = sizeof(b) /sizeof(int);
-//   int *res = combineArr(a, size1, b, size2);
-//    for ( int i = 0; i < size1+size2; i++) {
-//        printf("%d\n",res[i]);
-//    }
-    
-    
-    
+//    [self testCombineArr];
 }
-
-
+-(void)testCombineArr{
+    int a[] = {10,20,400};
+    int b[] = {12,30,35};
+    int size1 = sizeof(a) / sizeof(int);
+    int size2 = sizeof(b) /sizeof(int);
+    int *res = combineArr(a, size1, b, size2);
+    for ( int i = 0; i < size1+size2; i++) {
+        printf("%d\n",res[i]);
+    }
+}
  //求101 - 200 之间的素数
 -(void)demo1 {
     int n = 0,k,leap = 0;
@@ -408,8 +400,9 @@ int *combineArr(int *arr1,int size1,int *arr2,int size2){
     while (j < size2) {
         res[k++] = arr2[j++];
     }
-    int *arr =(int*)res;
-    return arr;
+    int *newArr =(int*)res;
+    return newArr;
+    
 }
  /**
     数据结构 链表 二叉树
